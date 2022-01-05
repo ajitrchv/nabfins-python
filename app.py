@@ -6,6 +6,8 @@ import pandas as pd
 from datetime import datetime as dt
 import plotly.express as px
 
+favicon = 'nfs.png'
+st.set_page_config(page_title='NABFINS Thodupuzha', page_icon = favicon, layout = 'wide', initial_sidebar_state = 'auto')
 
 xl_file = st.file_uploader("Choose a XLSX file", type="xlsx")
 
