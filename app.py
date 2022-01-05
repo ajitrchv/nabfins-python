@@ -37,11 +37,8 @@ month_data = pd.read_excel(xl_file, skiprows=0, usecols='A', nrows=1, header=Non
 dfx = month_data.strftime("%Y-%m")
 
 
-st.header("NABFINS")
-
-sub1,sub2=st.columns(2)
-sub1.subheader("Graph Data of: ",dfx)
-sub2.subheader(dfx)
+st.header("NABFINS THODUPUZHA")
+st.write("Graph Data of:"," ",dfx)
 
 bar_chart = px.bar (
                     df, x="Unnamed: 0",labels={"Unnamed: 0":"Name","AMOUNT.1":ydata},
