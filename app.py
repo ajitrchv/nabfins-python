@@ -11,6 +11,8 @@ st.set_page_config(page_title='NABFINS Thodupuzha', page_icon = favicon, layout 
 
 xl_file = st.file_uploader("Choose a XLSX file", type="xlsx")
 
+
+
 if xl_file == None:
     xl_file = 'trackDec21.xlsx'
 sheet = 'COLLECTION AGAINST DEMAND'
@@ -32,22 +34,14 @@ if(option == 'Achievement Percentage'):
 
 
 month_data = pd.read_excel(xl_file, skiprows=0, usecols='A', nrows=1, header=None, names=["Value"]).iloc[0]["Value"]
-
-
-#fmt = "%m-%Y"
-#styler = month_data.style.format({"Value": lambda t: t.strftime(fmt)})
-#styler = styler
-#st.table(styler)
-
-
-
+dfx = month_data.strftime("%Y-%m")
 
 
 st.header("NABFINS")
 
 sub1,sub2=st.columns(2)
-sub1.subheader("Graph Data of: ")
-sub2.subheader(month_data)
+sub1.subheader("Graph Data of: ",dfx)
+sub2.subheader(dfx)
 
 bar_chart = px.bar (
                     df, x="Unnamed: 0",labels={"Unnamed: 0":"Name","AMOUNT.1":ydata},
